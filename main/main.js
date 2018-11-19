@@ -5,7 +5,7 @@ module.exports = function main(inputs) {
         if(typeof item != 'undefined'){
             item.count++
         }else{
-            itemList.push({barcode:inputs[i].barcode, name:inputs[i].name, count:1, price:inputs[i].price})
+            itemList.push({barcode:inputs[i].barcode, name:inputs[i].name, count:1, unit:inputs[i].unit, price:inputs[i].price})
         }
     }
     return print(itemList)
@@ -24,9 +24,9 @@ function print(itemList){
     var total =0;
     text+='***<没钱赚商店>购物清单***\n'
     for(var i = 0; i <itemList.length; i++){
-        text+="名称："+itemList[i].name+", "
-        text+="数量："+itemList[i].count+itemList[i].unit+", "
-        text+="单价："+itemList[i].price.toFixed(2)+"(元), "
+        text+="名称："+itemList[i].name+"，"
+        text+="数量："+itemList[i].count+itemList[i].unit+"，"
+        text+="单价："+itemList[i].price.toFixed(2)+"(元)，"
         var smallTotal = itemList[i].price*itemList[i].count
         text+="小计："+smallTotal.toFixed(2)+"(元)\n"
         total+=smallTotal
